@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/profile.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <title>Sua Conta</title>
+</head>
+<body>
+    <header class="cabecalho">
+        <a class="logo" href="http://127.0.0.1:3000/home/home_page.html"><img src="{{url_for('static', path='logo.png')}}" alt=""></a>
+        <div class="content_header">
+            <ul>
+                <li class="header_list"><a href="http://127.0.0.1:3000/index.html">Home</a></li>
+                <li class="header_list"><a href="http://127.0.0.1:3000/Contatos/contatos.html">Contatos</a></li>
+                <li class="header_list"><a href="http://127.0.0.1:3000/Sobre/sobre.html">Sobre</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+        <div class="profile_content">
+            <h1>Minha conta</h1><hr>
+            <ul>
+                <li>Nome: {{user}}</li>
+                <li>Email: {{email}}</li>
+                <li>Passowrd: {{password}}</li>
+                <li>Ingresso no site: {{create_at.strftime('%d/%m/%Y %H:%M:%S') }}</li>
+                <form action="http://127.0.0.1:8000/delete" method="POST">
+                    <input type="hidden" name="user_id" value="{{ user_id }}">
+                    <button type="submit">Excluir Conta</button>
+                </form>
+            </ul>
+
+        </div>
+    </div>
+</body>
+</html>
